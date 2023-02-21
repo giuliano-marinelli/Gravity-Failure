@@ -13,6 +13,8 @@ public class RobotController : MonoBehaviour
     public bool propelling = false;
     public ParticleSystem jetpackParticles;
     public ParticleSystem propellerParticles;
+    public GameObject arms;
+    public Animator animator;
 
     //info
     public Vector3 targetPointed = Vector3.zero;
@@ -29,6 +31,7 @@ public class RobotController : MonoBehaviour
         propellerFuel = gameObject.GetComponent<PropellerFuel>();
         robotBateries = gameObject.GetComponent<RobotBateries>();
 
+
         jetpackParticles.Stop();
         propellerParticles.Stop();
     }
@@ -42,6 +45,8 @@ public class RobotController : MonoBehaviour
     private void Update()
     {
         CalculateTargetPointed();
+
+        arms.transform.LookAt(new Vector3(targetPointed.x, 5, targetPointed.z));
     }
 
     private void CalculateTargetPointed()
@@ -59,15 +64,19 @@ public class RobotController : MonoBehaviour
         if (!robotBateries.IsEmpty())
         {
             Debug.Log("use kick " + (direction == 1 ? "left" : "right"));
-            Collider[] propsHitted = Physics.OverlapSphere(transform.position + transform.forward * direction, 0.75f, 1 << LayerMask.NameToLayer("Spaceship"));
+
+            if (direction == 1) animator.SetTrigger("KickRight");
+            else animator.SetTrigger("KickLeft");
+
+            Collider[] propsHitted = Physics.OverlapSphere(transform.position + transform.right * direction, 0.75f, 1 << LayerMask.NameToLayer("Spaceship"));
             if (propsHitted.Length > 0)
             {
-                rb.AddForce((-1) * direction * transform.forward * kickForce);
+                rb.AddForce((-1) * direction * transform.right * kickForce);
 
                 foreach (Collider propHitted in propsHitted)
                 {
                     Debug.Log("kick collides on " + propHitted);
-                    propHitted.GetComponent<Rigidbody>().AddForce(direction * transform.forward * kickForce);
+                    propHitted.GetComponent<Rigidbody>().AddForce(direction * transform.right * kickForce);
                 }
             }
         }
@@ -78,7 +87,8 @@ public class RobotController : MonoBehaviour
         if (usingJetpack && !robotBateries.IsEmpty())
         {
             rb.AddForce(transform.up * jetpackForce);
-        } else
+        }
+        else
         {
             jetpackParticles.Stop();
         }
@@ -160,16 +170,16 @@ public class RobotController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        if (Physics.OverlapSphere(transform.position + transform.forward * (-1), 0.75f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
-            Gizmos.DrawSphere(transform.position + transform.forward * (-1), 0.75f);
+        if (Physics.OverlapSphere(transform.position + transform.right * (-1), 0.75f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
+            Gizmos.DrawSphere(transform.position + transform.right * (-1), 0.75f);
         else
-            Gizmos.DrawWireSphere(transform.position + transform.forward * (-1), 0.75f);
+            Gizmos.DrawWireSphere(transform.position + transform.right * (-1), 0.75f);
 
         Gizmos.color = Color.blue;
-        if (Physics.OverlapSphere(transform.position + transform.forward * 1, 0.75f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
-            Gizmos.DrawSphere(transform.position + transform.forward, 0.75f);
+        if (Physics.OverlapSphere(transform.position + transform.right * 1, 0.75f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
+            Gizmos.DrawSphere(transform.position + transform.right, 0.75f);
         else
-            Gizmos.DrawWireSphere(transform.position + transform.forward, 0.75f);
+            Gizmos.DrawWireSphere(transform.position + transform.right, 0.75f);
 
         Gizmos.color = Color.green;
         if (Physics.OverlapSphere(transform.position + transform.up * 0.5f, 0.75f, 1 << LayerMask.NameToLayer("Interactuable")).Length > 0)

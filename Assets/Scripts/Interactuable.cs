@@ -11,4 +11,10 @@ public class Interactuable : MonoBehaviour
         Debug.Log("Activate interactuable");
         activated = true;
     }
+
+    public virtual void Deactivate()
+    {
+        Debug.Log("Deactivate interactuable");
+        activated = false;
+    }
 }

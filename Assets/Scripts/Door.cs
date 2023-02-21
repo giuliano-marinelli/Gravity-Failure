@@ -12,9 +12,12 @@ public class Door : Interactuable
 
     private void Update()
     {
-        if (activated && Time.time < openTime)
+        if (Time.time < openTime)
         {
-            transform.Translate(0, (openToRight ? 1 : -1) * openForce * Time.deltaTime, 0);
+            if (activated)
+                transform.Translate(0, (openToRight ? 1 : -1) * openForce * Time.deltaTime, 0);
+            else
+                transform.Translate(0, (-1) * (openToRight ? 1 : -1) * openForce * Time.deltaTime, 0);
         }
     }
 
@@ -26,5 +29,16 @@ public class Door : Interactuable
 
             openTime = Time.time + openDelay;
         }
+    }
+
+    public override void Deactivate()
+    {
+        if (activated)
+        {
+            base.Deactivate();
+
+            openTime = Time.time + openDelay;
+        }
+
     }
 }

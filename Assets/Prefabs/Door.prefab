@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4257962983512068902}
   - component: {fileID: 916633515304475779}
   - component: {fileID: 3124510894690674761}
-  - component: {fileID: 4367906402156615842}
-  - component: {fileID: -6108453132760886601}
   - component: {fileID: -3950182436057107861}
+  - component: {fileID: -6108453132760886601}
+  - component: {fileID: 4367906402156615842}
   m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
@@ -87,35 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4367906402156615842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3484803605608761756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0538f422e7b43d4ab510614ae015313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  openForce: 2
-  openDelay: 1
-  openToRight: 1
---- !u!65 &-6108453132760886601
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3484803605608761756}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.019999998, y: 0.03868474, z: 0.059999995}
-  m_Center: {x: 0, y: 0, z: 0.02}
 --- !u!54 &-3950182436057107861
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,3 +103,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &-6108453132760886601
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484803605608761756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019999998, y: 0.03868474, z: 0.059999995}
+  m_Center: {x: 0, y: 0, z: 0.02}
+--- !u!114 &4367906402156615842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484803605608761756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0538f422e7b43d4ab510614ae015313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  openForce: 2
+  openDelay: 1
+  openToRight: 1

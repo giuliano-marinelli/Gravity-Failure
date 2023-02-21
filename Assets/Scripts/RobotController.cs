@@ -59,24 +59,23 @@ public class RobotController : MonoBehaviour
         }
     }
 
-    private void Kick(int direction)
+    private void Kick()
     {
         if (!robotBateries.IsEmpty())
         {
-            Debug.Log("use kick " + (direction == 1 ? "left" : "right"));
+            //Debug.Log("use kick " + (direction == 1 ? "left" : "right"));
 
-            if (direction == 1) animator.SetTrigger("KickRight");
-            else animator.SetTrigger("KickLeft");
+            animator.SetTrigger("KickRight");
 
-            Collider[] propsHitted = Physics.OverlapSphere(transform.position + transform.right * direction, 0.75f, 1 << LayerMask.NameToLayer("Spaceship"));
+            Collider[] propsHitted = Physics.OverlapSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f, 1 << LayerMask.NameToLayer("Spaceship"));
             if (propsHitted.Length > 0)
             {
-                rb.AddForce((-1) * direction * transform.right * kickForce);
+                rb.AddForce((-1) * (transform.position - targetPointed).normalized * kickForce);
 
                 foreach (Collider propHitted in propsHitted)
                 {
                     Debug.Log("kick collides on " + propHitted);
-                    propHitted.GetComponent<Rigidbody>().AddForce(direction * transform.right * kickForce);
+                    propHitted.GetComponent<Rigidbody>().AddForce((transform.position - targetPointed).normalized * kickForce);
                 }
             }
         }
@@ -113,11 +112,19 @@ public class RobotController : MonoBehaviour
         inputPosition = context.ReadValue<Vector2>();
     }
 
+    public void OnKick(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Kick();
+        }
+    }
+
     public void OnLeftKick(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            Kick(-1);
+            Kick();
         }
     }
 
@@ -125,7 +132,7 @@ public class RobotController : MonoBehaviour
     {
         if (context.performed)
         {
-            Kick(1);
+            Kick();
         }
     }
 
@@ -169,23 +176,23 @@ public class RobotController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        if (Physics.OverlapSphere(transform.position + transform.right * (-1), 0.75f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
-            Gizmos.DrawSphere(transform.position + transform.right * (-1), 0.75f);
-        else
-            Gizmos.DrawWireSphere(transform.position + transform.right * (-1), 0.75f);
+        //Gizmos.color = Color.red;
+        //if (Physics.OverlapSphere(transform.position + transform.right * (-1), 0.75f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
+        //    Gizmos.DrawSphere(transform.position + transform.right * (-1), 0.75f);
+        //else
+        //    Gizmos.DrawWireSphere(transform.position + transform.right * (-1), 0.75f);
 
-        Gizmos.color = Color.blue;
-        if (Physics.OverlapSphere(transform.position + transform.right * 1, 0.75f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
-            Gizmos.DrawSphere(transform.position + transform.right, 0.75f);
-        else
-            Gizmos.DrawWireSphere(transform.position + transform.right, 0.75f);
+        //Gizmos.color = Color.blue;
+        //if (Physics.OverlapSphere(transform.position + transform.right * 1, 0.75f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
+        //    Gizmos.DrawSphere(transform.position + transform.right, 0.75f);
+        //else
+        //    Gizmos.DrawWireSphere(transform.position + transform.right, 0.75f);
 
         Gizmos.color = Color.green;
-        if (Physics.OverlapSphere(transform.position + transform.up * 0.5f, 0.75f, 1 << LayerMask.NameToLayer("Interactuable")).Length > 0)
-            Gizmos.DrawSphere(transform.position + transform.up * 0.5f, 0.75f);
+        if (Physics.OverlapSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
+            Gizmos.DrawSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f);
         else
-            Gizmos.DrawWireSphere(transform.position + transform.up * 0.5f, 0.75f);
+            Gizmos.DrawWireSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f);
 
         if (targetPointed != Vector3.zero)
         {

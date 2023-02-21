@@ -325,7 +325,7 @@ CapsuleCollider:
   m_Radius: 0.9
   m_Height: 2.9
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &4844234666247350393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +471,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: edf5575b-e7b7-45d3-b6ee-6495c7def562
     m_ActionName: Player/Aim[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4844234666247350392}
+        m_TargetAssemblyTypeName: RobotController, Assembly-CSharp
+        m_MethodName: OnKick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 627f5368-a08c-4312-a898-26f8f8ac58e7
+    m_ActionName: Player/Kick[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -488,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad336f5e8f8c469418563448b4716130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kickForce: 200
+  kickForce: 500
   jetpackForce: 5
   propellerForce: 2
   usingJetpack: 0
@@ -496,6 +512,7 @@ MonoBehaviour:
   jetpackParticles: {fileID: 240333022496774573}
   propellerParticles: {fileID: 368815919012746341}
   arms: {fileID: 3671177768395854663}
+  animator: {fileID: 4844234666055638844}
   targetPointed: {x: 0, y: 0, z: 0}
   inputPosition: {x: 0, y: 0}
 --- !u!114 &4844234666247350399
@@ -644,7 +661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5763274994973326773}
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

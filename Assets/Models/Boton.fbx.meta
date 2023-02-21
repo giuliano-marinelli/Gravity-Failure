@@ -2,7 +2,13 @@ fileFormatVersion: 2
 guid: 6a7b1687bf3f5d34ea6d045d12218794
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -7428340227070939724
+    second: Armature Boton|PULL
+  - first:
+      74: 5896015689512675279
+    second: Armature Boton|PUSH
   externalObjects:
   - first:
       type: UnityEngine:Material

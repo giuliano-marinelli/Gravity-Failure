@@ -184,7 +184,7 @@ public class RobotController : MonoBehaviour
             case InputActionPhase.Started:
                 Debug.Log("Start Propelling");
                 propelling = true;
-                if (!propellerFuel.IsEmpty() && !robotBateries.IsEmpty())
+                if (!propellerFuel.IsEmpty() && !robotBateries.IsEmpty() && hasPropeller)
                 {
                     propellerParticles.Play();
                     propellerEvent.start();

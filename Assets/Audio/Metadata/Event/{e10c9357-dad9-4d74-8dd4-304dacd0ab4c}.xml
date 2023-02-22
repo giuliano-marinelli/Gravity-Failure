@@ -31,6 +31,9 @@
 		<relationship name="timeline">
 			<destination>{930b9f9d-53dd-4c6e-b91d-c8cf46026ec0}</destination>
 		</relationship>
+		<relationship name="banks">
+			<destination>{f42d261e-c1e4-4e4b-98aa-64a79a8b0fff}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{dbe04843-3fbb-4183-bc4e-ada062893e2f}">
 		<relationship name="masterBus">
@@ -98,6 +101,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{fa3cb290-7e7d-4d92-aa0f-675c392a9f3d}">
+		<property name="volume">
+			<value>-10</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -148,10 +154,12 @@
 	<object class="MixerBusFader" id="{4cdca037-5fdd-46b9-a657-d45be4cb3e5d}" />
 	<object class="MixerBusEffectChain" id="{5c21d6f0-a3e3-43d2-85bb-d40e6baf77bd}">
 		<relationship name="effects">
+			<destination>{70ba1d5e-cad4-472d-96aa-9ee7d141744e}</destination>
 			<destination>{a69b3ff1-d6c5-4435-a4fa-d96c47e1cfb1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a879e3e1-7fc3-4c4e-ac6d-3574fd960ff8}" />
 	<object class="MixerBusFader" id="{82d11672-d3e4-42b0-a4da-f37c593a9598}" />
+	<object class="LimiterEffect" id="{70ba1d5e-cad4-472d-96aa-9ee7d141744e}" />
 	<object class="MixerBusFader" id="{a69b3ff1-d6c5-4435-a4fa-d96c47e1cfb1}" />
 </objects>

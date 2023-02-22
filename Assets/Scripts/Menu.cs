@@ -8,17 +8,19 @@ public class Menu : MonoBehaviour
     public GameObject menuCamera;
     public GameObject gameCamera;
     public GameObject menuCanvas;
+    public GameObject gameCanvas;
     public GameObject music;
     public GameObject player;
 
-    private void Start()
-    {
-
-    }
+    public FMODUnity.EventReference startSound;
+    public FMODUnity.EventReference quitSound;
 
     public void OnStart()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(startSound);
+
         menuCanvas.SetActive(false);
+        gameCanvas.SetActive(true);
         music.SetActive(true);
         player.SetActive(true);
         //Camera.main.GetComponent<CameraFollow>().target = player.transform;
@@ -30,6 +32,8 @@ public class Menu : MonoBehaviour
 
     public void OnQuit()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(quitSound);
+
         Application.Quit();
     }
 }

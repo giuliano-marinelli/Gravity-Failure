@@ -8,6 +8,10 @@ public class Button : Interactuable
     public float deactivateInTime = 0f;
     public Interactuable[] interactuables;
     public FMODUnity.EventReference buttonSound;
+    public FMODUnity.EventReference timeSound;
+
+    private FMOD.Studio.EventInstance timeEvent;
+    private GameObject playerColision;
 
     //internal
     private Animator animator;
@@ -16,6 +20,8 @@ public class Button : Interactuable
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+
+        timeEvent = FMODUnity.RuntimeManager.CreateInstance(timeSound);
     }
 
     private void Update()
@@ -23,6 +29,7 @@ public class Button : Interactuable
         if (activated && deactivateInTime > 0 && Time.time > deactivateTime)
         {
             Deactivate();
+            timeEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 
@@ -42,7 +49,11 @@ public class Button : Interactuable
 
             FMODUnity.RuntimeManager.PlayOneShotAttached(buttonSound, gameObject);
 
-            if (deactivateInTime > 0) deactivateTime = Time.time + deactivateInTime;
+            if (deactivateInTime > 0)
+            {
+                deactivateTime = Time.time + deactivateInTime;
+                timeEvent.start();
+            }
 
             animator.SetBool("pushed", true);
             //gameObject.transform.localScale -= new Vector3(0, gameObject.transform.localScale.y / 2, 0);

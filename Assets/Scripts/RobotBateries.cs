@@ -44,6 +44,11 @@ public class RobotBateries : MonoBehaviour
         bateryAmount = (bateryAmount - amount < 0 ? 0 : bateryAmount - consumeRate);
     }
 
+    public void Refill(float amount)
+    {
+        bateryAmount = (bateryAmount + amount > 100 ? 100 : bateryAmount + amount);
+    }
+
     public bool IsEmpty()
     {
         return bateryAmount <= consumeRate;

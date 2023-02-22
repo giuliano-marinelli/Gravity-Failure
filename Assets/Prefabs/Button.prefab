@@ -139,6 +139,13 @@ MonoBehaviour:
       Data3: -1673024624
       Data4: -151077230
     Path: event:/Button
+  timeSound:
+    Guid:
+      Data1: 138378243
+      Data2: 1099000260
+      Data3: -1797307970
+      Data4: -1138688252
+    Path: event:/relog
 --- !u!1 &5896615160497939957
 GameObject:
   m_ObjectHideFlags: 0

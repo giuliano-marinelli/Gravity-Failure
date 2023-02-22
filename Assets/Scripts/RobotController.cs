@@ -20,6 +20,7 @@ public class RobotController : MonoBehaviour
 
     //audio parameters
     public FMODUnity.EventReference kickSound;
+    public FMODUnity.EventReference kickMissSound;
     public FMODUnity.EventReference propellerSound;
     public FMODUnity.EventReference jetpackSound;
 
@@ -82,8 +83,9 @@ public class RobotController : MonoBehaviour
             //Debug.Log("use kick " + (direction == 1 ? "left" : "right"));
 
             animator.SetTrigger("kick");
+            FMODUnity.RuntimeManager.PlayOneShotAttached(kickMissSound, gameObject);
 
-            Collider[] propsHitted = Physics.OverlapSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f, 1 << LayerMask.NameToLayer("Spaceship"));
+            Collider[] propsHitted = Physics.OverlapSphere(transform.position + transform.up * 0.2f, 1.5f, 1 << LayerMask.NameToLayer("Spaceship"));
             if (propsHitted.Length > 0)
             {
                 rb.AddForce((-1) * (transform.position - targetPointed).normalized * kickForce);
@@ -214,10 +216,10 @@ public class RobotController : MonoBehaviour
         //    Gizmos.DrawWireSphere(transform.position + transform.right, 0.75f);
 
         Gizmos.color = Color.green;
-        if (Physics.OverlapSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
-            Gizmos.DrawSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f);
+        if (Physics.OverlapSphere(transform.position +  transform.up * 0.2f, 1.5f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
+            Gizmos.DrawSphere(transform.position +  transform.up * 0.2f, 1.5f);
         else
-            Gizmos.DrawWireSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f);
+            Gizmos.DrawWireSphere(transform.position +  transform.up * 0.2f, 1.5f);
 
         if (targetPointed != Vector3.zero)
         {

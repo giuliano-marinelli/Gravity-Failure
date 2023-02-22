@@ -112,6 +112,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{32176f3d-acf9-44f2-b2dc-c22f1d9fd261}" />
 	<object class="SingleSound" id="{36942e51-93f8-4db8-9700-adc35befff50}">
+		<relationship name="modulators">
+			<destination>{8253d25d-a947-46ed-a171-e2e9c3dc23c9}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{aaf1288f-830d-43cc-a89b-d409f017ebc6}</destination>
 		</relationship>
@@ -121,11 +124,17 @@
 		<property name="filterTypeA">
 			<value>6</value>
 		</property>
+		<property name="filterTypeD">
+			<value>3</value>
+		</property>
 		<property name="filterTypeE">
 			<value>8</value>
 		</property>
 		<property name="frequencyA">
 			<value>131.785141</value>
+		</property>
+		<property name="frequencyD">
+			<value>13000</value>
 		</property>
 		<property name="frequencyE">
 			<value>5489.62793</value>
@@ -133,9 +142,15 @@
 		<property name="qualityA">
 			<value>0.183724135</value>
 		</property>
+		<property name="qualityD">
+			<value>0.100000001</value>
+		</property>
 		<property name="gainE">
 			<value>3.62068892</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{ae9ef79a-87a0-421f-8e91-106ad2608769}</destination>
+		</relationship>
 	</object>
 	<object class="GainEffect" id="{78ab2062-ea0c-465a-82b4-28f7f2be5924}">
 		<property name="gain">
@@ -151,6 +166,22 @@
 	<object class="SpatialiserEffect" id="{e11989b1-75dc-41fd-90ba-67ba9e2c0ec3}">
 		<property name="distanceRolloffType">
 			<value>2</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{8253d25d-a947-46ed-a171-e2e9c3dc23c9}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>4</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{ae9ef79a-87a0-421f-8e91-106ad2608769}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>frequencyD</value>
+		</property>
+		<property name="amount">
+			<value>10</value>
 		</property>
 	</object>
 	<object class="Automator" id="{53465cde-861c-42e6-aafd-9308d3beb9e9}">
@@ -178,7 +209,7 @@
 			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.356008351</value>
+			<value>-1</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{6a8cf790-69b6-4b4e-b5be-d3be03a6b67a}">

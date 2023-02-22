@@ -7,7 +7,8 @@ public class Button : Interactuable
     //parameters
     public float deactivateInTime = 0f;
     public Interactuable[] interactuables;
-    
+    public FMODUnity.EventReference buttonSound;
+
     //internal
     private Animator animator;
     private float deactivateTime = 0f;
@@ -38,6 +39,8 @@ public class Button : Interactuable
         if (!activated)
         {
             base.Activate();
+
+            FMODUnity.RuntimeManager.PlayOneShotAttached(buttonSound, gameObject);
 
             if (deactivateInTime > 0) deactivateTime = Time.time + deactivateInTime;
 

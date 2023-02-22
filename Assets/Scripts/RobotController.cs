@@ -17,8 +17,12 @@ public class RobotController : MonoBehaviour
     public Animator animator;
 
     //audio parameters
+    public FMODUnity.EventReference kickSound;
     public FMODUnity.EventReference propellerSound;
-    public FMOD.Studio.EventInstance propellerEvent;
+    public FMODUnity.EventReference jetpackSound;
+
+    private FMOD.Studio.EventInstance propellerEvent;
+    private FMOD.Studio.EventInstance jetpackEvent;
 
     //info
     public Vector3 targetPointed = Vector3.zero;
@@ -38,6 +42,9 @@ public class RobotController : MonoBehaviour
         //audio instances
         propellerEvent = FMODUnity.RuntimeManager.CreateInstance(propellerSound);
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(propellerEvent, transform, rb);
+
+        jetpackEvent = FMODUnity.RuntimeManager.CreateInstance(jetpackSound);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(jetpackEvent, transform, rb);
 
         jetpackParticles.Stop();
         propellerParticles.Stop();
@@ -78,6 +85,8 @@ public class RobotController : MonoBehaviour
             if (propsHitted.Length > 0)
             {
                 rb.AddForce((-1) * (transform.position - targetPointed).normalized * kickForce);
+                
+                FMODUnity.RuntimeManager.PlayOneShotAttached(kickSound, gameObject);
 
                 foreach (Collider propHitted in propsHitted)
                 {
@@ -155,11 +164,13 @@ public class RobotController : MonoBehaviour
                 Debug.Log("Start Jetpack");
                 usingJetpack = true;
                 if (!robotBateries.IsEmpty()) jetpackParticles.Play();
+                jetpackEvent.start();
                 break;
             case InputActionPhase.Canceled:
                 Debug.Log("Stop Jetpack");
                 usingJetpack = false;
                 jetpackParticles.Stop();
+                jetpackEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 break;
         }
     }

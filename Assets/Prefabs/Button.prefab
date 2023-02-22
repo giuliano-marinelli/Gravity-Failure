@@ -132,6 +132,13 @@ MonoBehaviour:
   activated: 0
   deactivateInTime: 0
   interactuables: []
+  buttonSound:
+    Guid:
+      Data1: -1478514483
+      Data2: 1111020947
+      Data3: -1673024624
+      Data4: -151077230
+    Path: event:/Button
 --- !u!1 &5896615160497939957
 GameObject:
   m_ObjectHideFlags: 0

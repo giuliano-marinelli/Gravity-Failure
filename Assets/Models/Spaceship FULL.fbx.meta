@@ -87,6 +87,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Top of Spaceship
+    second: {fileID: 2100000, guid: 67ff5694422845543bd5afc40d4e5c3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Tubo
     second: {fileID: 2100000, guid: 5967d9d9d18a02442852b6e1a94c2f81, type: 2}
   - first:

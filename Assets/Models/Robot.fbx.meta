@@ -3,77 +3,7 @@ guid: 4b80791b59e014549be820618111add1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Matafuegos1
-    second: {fileID: 2100000, guid: 8476bd0f253b5b04699c74a970773232, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Matafuegos2
-    second: {fileID: 2100000, guid: 045b655a595903f4e82730c71c731e39, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Matafuegos3
-    second: {fileID: 2100000, guid: aa3c1270e37972941869f76de1d96173, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Matafuegos4
-    second: {fileID: 2100000, guid: 1f9ec52bfb051484bbace70b8c7d3f21, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ojos IN
-    second: {fileID: 2100000, guid: 8a9243bca9b54574fbbfe34ebf5cb487, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ojos OUT
-    second: {fileID: 2100000, guid: 603715db8d3f615498191686717d2054, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Placa de metal
-    second: {fileID: 2100000, guid: 243aada9b620dda4aa313159b64c8fad, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot1
-    second: {fileID: 2100000, guid: e53ed6592ba016546bb55dfa03847e0f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot2
-    second: {fileID: 2100000, guid: 00152d1cbf3507742b94bfa28510e79e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot3
-    second: {fileID: 2100000, guid: 8fda3c61855ff8c46926bc3bc7b57f78, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot4
-    second: {fileID: 2100000, guid: 21330fd34d4d0084ab8cc6ae17e835e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tornillo IN
-    second: {fileID: 2100000, guid: 3805fe6d39477084d9539de884c2caf8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tornillo OUT
-    second: {fileID: 2100000, guid: 7509a590a42e6244d8a56134bbcb3728, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tornillo OUT gold
-    second: {fileID: 2100000, guid: 95b325d775954ee4fb61ebde067fdeca, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -114,7 +44,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -164,6 +94,35 @@ ModelImporter:
       name: Armature Robot|Patada Izquierda
       takeName: Armature Robot|Patada Izquierda
       internalID: -7178696886038508730
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature Robot|Patada Medio
+      takeName: Armature Robot|Patada Medio
+      internalID: 1637069270147146972
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0

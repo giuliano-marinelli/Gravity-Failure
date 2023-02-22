@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 8016063805297292886}
   - component: {fileID: 6381913045451635187}
   - component: {fileID: 9184505760959401273}
-  - component: {fileID: 7544794854915687408}
+  - component: {fileID: 2118829685982663115}
   - component: {fileID: 7544794854915687412}
+  - component: {fileID: 7544794854915687408}
   m_Layer: 0
-  m_Name: Bateria
+  m_Name: BateriaItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +66,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 8f79375b10f408448a80d0bc8d9006b5, type: 2}
   - {fileID: 2100000, guid: cf5b58adad228714bb7ddd9591ee7e66, type: 2}
-  - {fileID: 2100000, guid: 61736aa7bb43619419ce1bf3c361919a, type: 2}
+  - {fileID: 2100000, guid: 2e4855d70f7ab14449f3a770adf04b5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,21 +88,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7544794854915687408
-MonoBehaviour:
+--- !u!65 &2118829685982663115
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7238717418400132332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6a3dfae8f3d69743bc2d4fd241a7696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
-  amplitude: 0.1
-  frequency: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019021135, y: 0.020000009, z: 0.023982603}
+  m_Center: {x: -0.0000000072950184, y: -2.1461422e-10, z: 0.0013049506}
 --- !u!108 &7544794854915687412
 Light:
   m_ObjectHideFlags: 0
@@ -164,3 +163,18 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &7544794854915687408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238717418400132332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a3dfae8f3d69743bc2d4fd241a7696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
+  amplitude: 0.1
+  frequency: 1

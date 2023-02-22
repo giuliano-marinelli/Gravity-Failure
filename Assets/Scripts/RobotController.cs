@@ -11,9 +11,11 @@ public class RobotController : MonoBehaviour
     public float propellerForce = 2f;
     public bool usingJetpack = false;
     public bool propelling = false;
+    public bool hasPropeller = false;
     public ParticleSystem jetpackParticles;
     public ParticleSystem propellerParticles;
     public GameObject arms;
+    public GameObject hands;
     public Animator animator;
 
     //audio parameters
@@ -79,7 +81,7 @@ public class RobotController : MonoBehaviour
         {
             //Debug.Log("use kick " + (direction == 1 ? "left" : "right"));
 
-            animator.SetTrigger("KickRight");
+            animator.SetTrigger("kick");
 
             Collider[] propsHitted = Physics.OverlapSphere(transform.position + (-1) * transform.up * 0.2f, 1.25f, 1 << LayerMask.NameToLayer("Spaceship"));
             if (propsHitted.Length > 0)
@@ -111,7 +113,7 @@ public class RobotController : MonoBehaviour
 
     private void Propel()
     {
-        if (propelling && !propellerFuel.IsEmpty() && !robotBateries.IsEmpty())
+        if (propelling && !propellerFuel.IsEmpty() && !robotBateries.IsEmpty() && hasPropeller)
         {
             rb.AddForce((transform.position - targetPointed) * propellerForce);
             propellerParticles.transform.LookAt(targetPointed);
@@ -182,9 +184,11 @@ public class RobotController : MonoBehaviour
             case InputActionPhase.Started:
                 Debug.Log("Start Propelling");
                 propelling = true;
-                if (!propellerFuel.IsEmpty() && !robotBateries.IsEmpty()) propellerParticles.Play();
-                //FMODUnity.RuntimeManager.PlayOneShot(propellerEvent, gameObject);
-                propellerEvent.start();
+                if (!propellerFuel.IsEmpty() && !robotBateries.IsEmpty())
+                {
+                    propellerParticles.Play();
+                    propellerEvent.start();
+                }
                 break;
             case InputActionPhase.Canceled:
                 Debug.Log("Stop Propelling");

@@ -167,8 +167,11 @@ public class RobotController : MonoBehaviour
             case InputActionPhase.Started:
                 Debug.Log("Start Jetpack");
                 usingJetpack = true;
-                if (!robotBateries.IsEmpty()) jetpackParticles.Play();
-                jetpackEvent.start();
+                if (!robotBateries.IsEmpty())
+                {
+                    jetpackParticles.Play();
+                    jetpackEvent.start();
+                }
                 break;
             case InputActionPhase.Canceled:
                 Debug.Log("Stop Jetpack");

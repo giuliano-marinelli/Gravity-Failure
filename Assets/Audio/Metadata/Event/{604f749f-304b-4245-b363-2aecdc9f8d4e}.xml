@@ -92,7 +92,7 @@
 	</object>
 	<object class="MultiSound" id="{6f8b0126-d89c-4490-a10c-274a005fbb18}">
 		<relationship name="sounds">
-			<destination>{36942e51-93f8-4db8-9700-adc35befff50}</destination>
+			<destination>{b0f9d27d-9764-4e38-8450-3449a80fa8bf}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{32a4d60d-fee6-4760-96a7-4119e646512d}">
@@ -111,12 +111,9 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{32176f3d-acf9-44f2-b2dc-c22f1d9fd261}" />
-	<object class="SingleSound" id="{36942e51-93f8-4db8-9700-adc35befff50}">
-		<relationship name="modulators">
-			<destination>{8253d25d-a947-46ed-a171-e2e9c3dc23c9}</destination>
-		</relationship>
-		<relationship name="audioFile">
-			<destination>{aaf1288f-830d-43cc-a89b-d409f017ebc6}</destination>
+	<object class="MultiSound" id="{b0f9d27d-9764-4e38-8450-3449a80fa8bf}">
+		<relationship name="sounds">
+			<destination>{4c78a806-d724-4ccb-9670-5078cd8b87e4}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{7b1e9f2f-420e-4866-92e3-b245dbf87f34}" />
@@ -134,10 +131,10 @@
 			<value>131.785141</value>
 		</property>
 		<property name="frequencyD">
-			<value>13000</value>
+			<value>8000</value>
 		</property>
 		<property name="frequencyE">
-			<value>5489.62793</value>
+			<value>4800</value>
 		</property>
 		<property name="qualityA">
 			<value>0.183724135</value>
@@ -168,20 +165,20 @@
 			<value>2</value>
 		</property>
 	</object>
-	<object class="RandomizerModulator" id="{8253d25d-a947-46ed-a171-e2e9c3dc23c9}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>pitch</value>
-		</property>
-		<property name="amount">
-			<value>4</value>
-		</property>
+	<object class="SingleSound" id="{4c78a806-d724-4ccb-9670-5078cd8b87e4}">
+		<relationship name="modulators">
+			<destination>{f258ee77-6f93-42ef-9cf0-82c87e36036f}</destination>
+		</relationship>
+		<relationship name="audioFile">
+			<destination>{aaf1288f-830d-43cc-a89b-d409f017ebc6}</destination>
+		</relationship>
 	</object>
 	<object class="RandomizerModulator" id="{ae9ef79a-87a0-421f-8e91-106ad2608769}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>frequencyD</value>
 		</property>
 		<property name="amount">
-			<value>10</value>
+			<value>13</value>
 		</property>
 	</object>
 	<object class="Automator" id="{53465cde-861c-42e6-aafd-9308d3beb9e9}">
@@ -191,6 +188,14 @@
 		<relationship name="automationCurves">
 			<destination>{04424705-64c6-436a-9194-5e6ced8baf2a}</destination>
 		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{f258ee77-6f93-42ef-9cf0-82c87e36036f}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>3.5</value>
+		</property>
 	</object>
 	<object class="AutomationCurve" id="{04424705-64c6-436a-9194-5e6ced8baf2a}">
 		<relationship name="parameter">

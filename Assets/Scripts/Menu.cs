@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
     public GameObject gameCamera;
     public GameObject menuCanvas;
     public GameObject gameCanvas;
+    public GameObject seeInstructions;
     public GameObject music;
     public GameObject player;
 
@@ -23,6 +24,7 @@ public class Menu : MonoBehaviour
         gameCanvas.SetActive(true);
         music.SetActive(true);
         player.SetActive(true);
+        seeInstructions.SetActive(true);
         //Camera.main.GetComponent<CameraFollow>().target = player.transform;
         gameObject.SetActive(false);
 

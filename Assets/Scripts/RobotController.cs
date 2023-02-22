@@ -9,6 +9,7 @@ public class RobotController : MonoBehaviour
     public float kickForce = 200f;
     public float jetpackForce = 2f;
     public float propellerForce = 2f;
+    public float spinForce = 30f;
     public bool usingJetpack = false;
     public bool propelling = false;
     public bool hasPropeller = false;
@@ -17,6 +18,7 @@ public class RobotController : MonoBehaviour
     public GameObject arms;
     public GameObject hands;
     public Animator animator;
+    public GameObject escapeMenu;
 
     //audio parameters
     public FMODUnity.EventReference kickSound;
@@ -89,7 +91,7 @@ public class RobotController : MonoBehaviour
             if (propsHitted.Length > 0)
             {
                 rb.AddForce((-1) * (transform.position - targetPointed).normalized * kickForce);
-                
+
                 FMODUnity.RuntimeManager.PlayOneShotAttached(kickSound, gameObject);
 
                 foreach (Collider propHitted in propsHitted)
@@ -127,6 +129,14 @@ public class RobotController : MonoBehaviour
         }
     }
 
+    private void Spin()
+    {
+        if (!robotBateries.IsEmpty())
+        {
+            rb.AddTorque(transform.forward * spinForce);
+        }
+    }
+
     public void OnAim(InputAction.CallbackContext context)
     {
         inputPosition = context.ReadValue<Vector2>();
@@ -144,7 +154,7 @@ public class RobotController : MonoBehaviour
     {
         if (context.performed)
         {
-            Kick();
+            //Kick();
         }
     }
 
@@ -152,7 +162,7 @@ public class RobotController : MonoBehaviour
     {
         if (context.performed)
         {
-            Kick();
+            //Kick();
         }
     }
 
@@ -204,6 +214,23 @@ public class RobotController : MonoBehaviour
         }
     }
 
+    public void OnSpin(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Spin();
+        }
+    }
+
+    public void OnEscape(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (!escapeMenu.activeSelf) escapeMenu.SetActive(true);
+            else escapeMenu.SetActive(false);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         //Gizmos.color = Color.red;
@@ -219,10 +246,10 @@ public class RobotController : MonoBehaviour
         //    Gizmos.DrawWireSphere(transform.position + transform.right, 0.75f);
 
         Gizmos.color = Color.green;
-        if (Physics.OverlapSphere(transform.position +  transform.up * 0.2f, 1.5f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
-            Gizmos.DrawSphere(transform.position +  transform.up * 0.2f, 1.5f);
+        if (Physics.OverlapSphere(transform.position + transform.up * 0.2f, 1.5f, 1 << LayerMask.NameToLayer("Spaceship")).Length > 0)
+            Gizmos.DrawSphere(transform.position + transform.up * 0.2f, 1.5f);
         else
-            Gizmos.DrawWireSphere(transform.position +  transform.up * 0.2f, 1.5f);
+            Gizmos.DrawWireSphere(transform.position + transform.up * 0.2f, 1.5f);
 
         if (targetPointed != Vector3.zero)
         {

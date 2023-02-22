@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5d080f8e-c396-47d4-9009-6d4caf586ea7}">
+		<property name="assetPath">
+			<value>music/atmos.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>117.09603174603174</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b52c2e0b-656f-470b-b47f-b171b62d7b6e}</destination>
+		</relationship>
+	</object>
+</objects>

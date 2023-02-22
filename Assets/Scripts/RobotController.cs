@@ -16,6 +16,10 @@ public class RobotController : MonoBehaviour
     public GameObject arms;
     public Animator animator;
 
+    //audio parameters
+    public FMODUnity.EventReference propellerSound;
+    public FMOD.Studio.EventInstance propellerEvent;
+
     //info
     public Vector3 targetPointed = Vector3.zero;
     public Vector2 inputPosition = Vector2.zero;
@@ -31,6 +35,9 @@ public class RobotController : MonoBehaviour
         propellerFuel = gameObject.GetComponent<PropellerFuel>();
         robotBateries = gameObject.GetComponent<RobotBateries>();
 
+        //audio instances
+        propellerEvent = FMODUnity.RuntimeManager.CreateInstance(propellerSound);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(propellerEvent, transform, rb);
 
         jetpackParticles.Stop();
         propellerParticles.Stop();
@@ -165,11 +172,14 @@ public class RobotController : MonoBehaviour
                 Debug.Log("Start Propelling");
                 propelling = true;
                 if (!propellerFuel.IsEmpty() && !robotBateries.IsEmpty()) propellerParticles.Play();
+                //FMODUnity.RuntimeManager.PlayOneShot(propellerEvent, gameObject);
+                propellerEvent.start();
                 break;
             case InputActionPhase.Canceled:
                 Debug.Log("Stop Propelling");
                 propelling = false;
                 propellerParticles.Stop();
+                propellerEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 break;
         }
     }

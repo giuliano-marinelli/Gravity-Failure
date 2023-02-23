@@ -7,9 +7,11 @@ public class Dialogues : MonoBehaviour
 {
     public GameObject textImage;
     public GameObject closeButton;
+    public FMODUnity.EventReference buttonSound;
 
     public void Close()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(buttonSound);
         textImage.SetActive(false);
         closeButton.SetActive(false);
     }

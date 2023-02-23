@@ -11,7 +11,6 @@ public class Dialogues : MonoBehaviour
 
     public void Close()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(buttonSound);
         textImage.SetActive(false);
         closeButton.SetActive(false);
     }
@@ -25,5 +24,11 @@ public class Dialogues : MonoBehaviour
     public void SetImage(Sprite image)
     {
         textImage.GetComponent<Image>().sprite = image;
+    }
+
+    public void OnClose()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(buttonSound);
+        Close();
     }
 }

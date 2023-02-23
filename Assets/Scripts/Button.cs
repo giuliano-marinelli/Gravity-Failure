@@ -11,7 +11,6 @@ public class Button : Interactuable
     public FMODUnity.EventReference timeSound;
 
     private FMOD.Studio.EventInstance timeEvent;
-    private GameObject playerColision;
 
     //internal
     private Animator animator;
@@ -38,6 +37,7 @@ public class Button : Interactuable
         if (collision.collider.tag == "Player" || collision.collider.tag == "Throwable")
         {
             Activate();
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(timeEvent, GameObject.FindGameObjectWithTag("Player").transform);
         }
     }
 

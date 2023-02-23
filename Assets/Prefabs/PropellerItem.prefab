@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3502157906846834589}
   - component: {fileID: 519586979631943736}
   - component: {fileID: 2364678782871250162}
-  - component: {fileID: 11525183356230536}
+  - component: {fileID: 6433753043511536545}
   - component: {fileID: 3967833393257302045}
   - component: {fileID: 3967833393257302044}
   - component: {fileID: 6119991896225124725}
@@ -91,8 +91,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &11525183356230536
-BoxCollider:
+--- !u!135 &6433753043511536545
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,8 +102,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.019999998, y: 0.02454536, z: 0.066611074}
-  m_Center: {x: 0, y: 0.0022726804, z: 0.0076833554}
+  m_Radius: 0.044336107
+  m_Center: {x: 0.005181805, y: 0.0022726785, z: 0.013532136}
 --- !u!108 &3967833393257302045
 Light:
   m_ObjectHideFlags: 0
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propellerPrefab: {fileID: 7585226830163136735, guid: 6451b32fcd3816046951cc6593c2af7c, type: 3}
+  propellerIndicator: {fileID: 0}
 --- !u!114 &-3623205109813478856
 MonoBehaviour:
   m_ObjectHideFlags: 0
